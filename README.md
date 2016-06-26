@@ -15,6 +15,10 @@ State : W.I.P
 - **MongoDB** - NoSQL Database
 - **Bluebird** - Optimized promise library
 
+### Instruction
+
+Start with : node server.js
+
 ### Shell command
 
 type "help" to have the command list
