@@ -1,0 +1,20 @@
+{
+  "name": "Starter-API",
+  "version": "0.1.0",
+  "description": "A starter backend point for any web or mobile application",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Alex-Werner/Starter-API-Hapi-NodeJS.git"
+  },
+  "author": "Alex Werner <obusco -dot- gmail.com>",
+  "licence": "MIT",
+  "homepage": "https://github.com/Alex-Werner/Starter-API-Hapi-NodeJS/blob/master/README.md",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "hapi": "^13.4.1",
+    "hapi-auth-cookie": "^6.1.1",
+    "moment": "^2.13.0",
+    "path": "^0.12.7"
+  }
+}
