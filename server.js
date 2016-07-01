@@ -71,7 +71,7 @@ Server.register([HapiAuthCookie],function(e){
        // ttl:30*24*60*60*1000,//30 d
        // keepAlive:true //automatically sets the session cookie after validation to extend the current session for a new ttl duration. Changes validity time from session to ttl in Browser
    });
-})
+});
 Server.route(Routes.endpoints);
 
 /**
@@ -99,6 +99,10 @@ Server.ext('onPostHandler', servExt.onPostHandler);
  */
 Server.ext('onPreResponse', servExt.onPreResponse);
 
+/*
+ * Work as console.log (but with added feature), see config/globals.js
+ */
+cl('Hello w0rld!');
 
 process.on('SIGINT',function(){
 console.log('This process is pid ' + process.pid);

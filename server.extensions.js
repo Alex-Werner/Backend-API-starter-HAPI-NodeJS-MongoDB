@@ -14,9 +14,21 @@ var onPostHandler = function (request, reply) {
     reply.continue();
 };
 var onPreResponse = function(request, reply){
+
     try{
-        var processTime = new Date().getTime()-request.response.request.info.received;
-        request.response.source._s={time:processTime};
+        var startedRequest = 0, processTime =0;
+        if(request && request.response && request.response.request && request.response.request.info){
+            startedRequest=request.response.request.info.received || request.info.received;
+            processTime = new Date().getTime()-startedRequest;
+            request.response.source._s={time:processTime};
+
+        }else{
+
+             startedRequest = request.info.received;
+            processTime = new Date().getTime()-startedRequest;
+            request.response.output.payload._s={time:processTime};
+
+        }
         server.info.req = (!server.info.req) ? 1: server.info.req+1;
         //reply.time = 0;
         //do stuff

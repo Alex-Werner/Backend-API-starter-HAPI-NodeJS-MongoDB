@@ -11,10 +11,14 @@
   "licence": "MIT",
   "homepage": "https://github.com/Alex-Werner/Starter-API-Hapi-NodeJS/blob/master/README.md",
   "dependencies": {
+    "asyncawait": "^1.0.4",
     "bluebird": "^3.4.1",
+    "check-types": "^7.0.0",
     "hapi": "^13.4.1",
     "hapi-auth-cookie": "^6.1.1",
     "moment": "^2.13.0",
+    "mongodb": "^2.1.18",
+    "object-assign": "^4.1.0",
     "path": "^0.12.7"
   }
 }
