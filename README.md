@@ -3,7 +3,7 @@
 A starter backend point for any web or mobile application
 
 
-State : W.I.P
+State (as of 04 July 14): Working state with models, controllers and routes connected
 
 
 
@@ -20,7 +20,23 @@ State : W.I.P
 
 ### Instruction
 
-Start with : node server.js
+Per default, this works on MongoDB.
+If you don't have it, install here (~9mn) : https://www.mongodb.com/download-center
+
+Then after having done a ```npm install```
+
+Prepare and launch your database using the script in
+```bin/win/start_MongoDB.bat```
+It will create a .db folder where db mongo's file will be stored  
+
+Start with :
+```node server.js```
+
+or with nodemon (reload on code change,...)
+```
+npm install -g nodemon
+nodemon server.js
+```
 
 ### Shell command
 
