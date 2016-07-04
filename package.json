@@ -7,8 +7,32 @@
     "type": "git",
     "url": "git@github.com:Alex-Werner/Starter-API-Hapi-NodeJS.git"
   },
-  "author": "Alex Werner <obusco -dot- gmail.com>",
-  "licence": "MIT",
+  "keywords": [
+    "starter",
+    "backend",
+    "nodejs",
+    "mongodb",
+    "hapijs",
+    "bluebird",
+    "mvc",
+    "api",
+    "server"
+  ],
+  "author": {
+    "name": "Alex Werner",
+    "url": "https://github.com/kylekatarnls",
+    "email":"<obusco $dot$ gmail.com>"
+  },
+  "license": "GPL-3.0",
+  "licenses": [
+    {
+      "type": "GPL-3.0",
+      "url": "https://github.com/Alex-Werner/Starter-API-Hapi-NodeJS/blob/master/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Alex-Werner/Starter-API-Hapi-NodeJS/issues"
+  },
   "homepage": "https://github.com/Alex-Werner/Starter-API-Hapi-NodeJS/blob/master/README.md",
   "dependencies": {
     "asyncawait": "^1.0.4",
