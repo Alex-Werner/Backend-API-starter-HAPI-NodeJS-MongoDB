@@ -24,12 +24,19 @@ Database.prototype.connect = function(){
         if(self._db!==null){
             return resolve(self._db);
         }else{
-            Driver.client.connect(self._dbPath,function(err,db){
-                if(err)
-                    return reject(err)
-                self._db = new Db(db);
-                return resolve(self._db);
-            });
+            try{
+                Driver.client.connect(self._dbPath,function(err,db){
+                    if(err){
+                        cl("Error in Database connection",err.name, err.message);
+                        return reject(err);
+                    }
+                    self._db = new Db(db);
+                    return resolve(self._db);
+                });
+            }catch(e){
+                console.log(e);
+            }
+
         }
     });
 };

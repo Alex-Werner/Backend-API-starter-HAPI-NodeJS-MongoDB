@@ -16,7 +16,8 @@ var User = {
                             console.error(e);
                             return reject(e);
                         });
-                });
+                })
+
         });
     },
     search: function (query, fields, options) {

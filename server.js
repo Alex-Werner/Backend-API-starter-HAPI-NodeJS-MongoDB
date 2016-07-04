@@ -1,5 +1,6 @@
 /** Gives access to :
-/* - reqRoot, require like but take path as : "models/user.js" instead "../../models/user.js"
+ /* - reqRoot, require like but take path as : "models/user.js" instead "../../models/user.js"
+ * - cl(), console.log like but return it's passed parameters (as an array if many args given)
  */
 require('./config/globals.js').import();
 require('./config/commands.js').import();
@@ -26,7 +27,7 @@ var Routes = reqRoot('server.routes.js');
 var servEnv = 'local';
 /* TODO : Move this to multi-database handler's folder */
 var Database = {
-    closeConnection:function(){
+    closeConnection: function () {
         console.info('Database disconnected by application call.');
     }
 }
@@ -34,43 +35,44 @@ var Database = {
 
 /* Server */
 var Server = new Hapi.Server();
-global.server.Server =Server;
+global.server.Server = Server;
 var ServerIP = osHelper.getServerIP() || '0.0.0.0';
-var ServerPort = (servEnv=='local')? '8000' : '80';
+var ServerPort = (servEnv == 'local') ? '8000' : '80';
 var ServerTLS = {
-    isActive:false,
-    cert:"",
-    key:""
+    isActive: false,
+    cert: "",
+    key: ""
 };
 
 var options = {
-     host:ServerIP,
-     port:ServerPort,/* set 80 for http, 443 for https */
-     routes:{
-         cors:true//allow to be joined from other domain
-     }
+    host: ServerIP,
+    port: ServerPort, /* set 80 for http, 443 for https */
+    routes: {
+        cors: true//allow to be joined from other domain
+    }
 }
-if(ServerTLS.isActive){
-     ServerPort = (servEnv=='local')? '443' : '443';
-     options.tls = {cert:ServerTLS.cert, key:ServerTLS.key}
+if (ServerTLS.isActive) {
+    ServerPort = (servEnv == 'local') ? '443' : '443';
+    options.tls = {cert: ServerTLS.cert, key: ServerTLS.key}
 }
 global.server.options = options;
 
 servMng.startServer(Server);
 
-Server.register([HapiAuthCookie],function(e){
-    if(e){
-        console.error('hapi-auth-cookie error'); throw e;
+Server.register([HapiAuthCookie], function (e) {
+    if (e) {
+        console.error('hapi-auth-cookie error');
+        throw e;
     }
     Server.auth.strategy('session', 'cookie', {
-       password: 'YouWantToHaveAReallyLongKey-ObviouslyYouNeedToChangeThisOne',
-       cookie: 'session',
-       redirectTo: false,
-       isSecure: ServerTLS.isActive,
-       ttl: 365 * 30 * 7 * 24 * 60 * 60 * 1000
-       // ttl:30*24*60*60*1000,//30 d
-       // keepAlive:true //automatically sets the session cookie after validation to extend the current session for a new ttl duration. Changes validity time from session to ttl in Browser
-   });
+        password: 'YouWantToHaveAReallyLongKey-ObviouslyYouNeedToChangeThisOne',
+        cookie: 'session',
+        redirectTo: false,
+        isSecure: ServerTLS.isActive,
+        ttl: 365 * 30 * 7 * 24 * 60 * 60 * 1000
+        // ttl:30*24*60*60*1000,//30 d
+        // keepAlive:true //automatically sets the session cookie after validation to extend the current session for a new ttl duration. Changes validity time from session to ttl in Browser
+    });
 });
 Server.route(Routes.endpoints);
 
@@ -104,8 +106,14 @@ Server.ext('onPreResponse', servExt.onPreResponse);
  */
 cl('Hello w0rld!');
 
-process.on('SIGINT',function(){
-console.log('This process is pid ' + process.pid);
+var ErrorHelper = reqRoot('helpers/errorHelper');
+ErrorHelper.handleUncaughtException();
+ErrorHelper.handleRejectionHandled();
+ErrorHelper.handleUnhandledRejection();
+ErrorHelper.handleError();
+
+process.on('SIGINT', function () {
+    console.log('This process is pid ' + process.pid);
     servMng.stopServer();
     server.rl.close();
     process.exit(1);
