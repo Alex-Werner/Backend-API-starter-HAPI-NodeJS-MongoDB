@@ -20,31 +20,30 @@ State (as of 04 July 14): Working state with models, controllers and routes conn
 
 ### Instruction
 
-Per default, this works on MongoDB.
-If you don't have it, install here (~9mn) : https://www.mongodb.com/download-center
+Per default, this works on MongoDB.  
+If you don't have it, install here (~9mn) : https://www.mongodb.com/download-center  
 
-Then after having done a ```npm install```
+Then after having done a ``` npm install ```   
 
-Prepare and launch your database using the script in
-```bin/win/start_MongoDB.bat```
-It will create a .db folder where db mongo's file will be stored  
+Prepare and launch your database using the script in ``` /bin/win/start_MongoDB.bat ```   
+It will create a .db folder where db mongo's file will be stored   
 
-Start with :
-```node server.js```
+Start with :   
+``` node server.js ```   
 
-or with nodemon (reload on code change,...)
-```
+or with nodemon (reload on code change,...)  
+```   
 npm install -g nodemon
 nodemon server.js
-```
+```   
 
-### Shell command
+### Shell command   
 
-type "help" to have the command list
+type "help" to have the command list   
 
-#### Connect to another database
-Change in connector/database.js : DatabaseClient=MongoDB to your own connector
-Exemple :
+#### Connect to another database   
+Change in connector/database.js : DatabaseClient=MongoDB to your own connector  
+Exemple :   
 ```
 var myOtherDbClient = require('databases/MyOtherDbClient');
 var DatabaseClient = myOtherDbClient;
