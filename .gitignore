@@ -1,4 +1,4 @@
 .idea
 .git
-.db
+db
 node_modules/

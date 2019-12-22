@@ -1,11 +1,15 @@
 {
-  "name": "Starter-API",
-  "version": "0.1.0",
+  "name": "backend-api-starter-hapi-nodejs-mongodb",
+  "version": "1.0.0",
   "description": "A starter backend point for any web or mobile application",
-  "main": "server.js",
+  "main": "service.js",
+  "scripts": {
+    "develop": "mongod --dbpath=$PWD/db",
+    "start": "node service.js"
+  },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Alex-Werner/Starter-API-Hapi-NodeJS.git"
+    "url": "git@github.com:Alex-Werner/backend-api-starter-hapi-nodejs-mongodb.git"
   },
   "keywords": [
     "starter",
@@ -13,36 +17,26 @@
     "nodejs",
     "mongodb",
     "hapijs",
-    "bluebird",
-    "mvc",
     "api",
     "server"
   ],
   "author": {
     "name": "Alex Werner",
-    "url": "https://github.com/kylekatarnls",
-    "email":"<obusco $dot$ gmail.com>"
+    "url": "https:///alex-werner.github.io"
   },
-  "license": "GPL-3.0",
-  "licenses": [
-    {
-      "type": "GPL-3.0",
-      "url": "https://github.com/Alex-Werner/Starter-API-Hapi-NodeJS/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Alex-Werner/Starter-API-Hapi-NodeJS/issues"
+    "url": "https://github.com/Alex-Werner/backend-api-starter-hapi-nodejs-mongodb/issues"
   },
-  "homepage": "https://github.com/Alex-Werner/Starter-API-Hapi-NodeJS/blob/master/README.md",
+  "homepage": "https://github.com/Alex-Werner/backend-api-starter-hapi-nodejs-mongodb/blob/master/README.md",
   "dependencies": {
-    "asyncawait": "^1.0.4",
-    "bluebird": "^3.4.1",
-    "check-types": "^7.0.0",
-    "hapi": "^13.4.1",
-    "hapi-auth-cookie": "^6.1.1",
-    "moment": "^2.13.0",
-    "mongodb": "^2.1.18",
-    "object-assign": "^4.1.0",
-    "path": "^0.12.7"
+    "@hapi/hapi": "^18.4.0",
+    "hapi-auth-jwt2": "^8.8.1",
+    "hapi-moleculer": "^2.2.0",
+    "hapi-mongodb": "^9.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "nats": "^1.3.2",
+    "winston": "^3.2.1"
   }
 }

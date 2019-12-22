@@ -1,3 +1,0 @@
-set CURWORKINGDIR=%CD%
-set SERVERDIR=%CURWORKINGDIR%\..\..\
-nodemon %SERVERDIR%\server.js
