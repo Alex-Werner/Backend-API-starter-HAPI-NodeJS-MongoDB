@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Alex-Werner/backend-api-starter-hapi-nodejs-mongodb/blob/master/README.md",
   "dependencies": {
-    "@hapi/hapi": "^18.4.0",
+    "@hapi/hapi": "^19.1.1",
     "hapi-auth-jwt2": "^8.8.1",
     "hapi-moleculer": "^2.2.0",
     "hapi-mongodb": "^9.0.0",
